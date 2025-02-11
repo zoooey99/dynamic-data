@@ -2,6 +2,9 @@ const express = require('express');
 
 
 const app = express();
+const bodyParser = require('body-parser');
+const handler = require('./lib/handler');
+app.use(bodyParser.urlencoded({extended: true}));
 const port = process.env.port || 3000;
 
 let navigation = require("./data/navigation.json");
@@ -39,7 +42,11 @@ app.get('/search', (request, response) =>{
     response.render("page", {title: "Search results for: " + request.query.q});
 
 })
+app.get('/basic', (req,res) =>{
+    res.render('page', {req});
+})
 
+app.get('/newsletter-signup', handler.newsletterSignup)
 
 //default response = 404 not found
 //      responses with 2 parameters! 
