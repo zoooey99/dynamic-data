@@ -46,7 +46,10 @@ app.get('/basic', (req,res) =>{
     res.render('page', {req});
 })
 
+//newsletter routes
 app.get('/newsletter-signup', handler.newsletterSignup)
+app.post('/newsletter-signup/process', handler.newsletterSignupProcess)
+app.get('/newsletter/list', handler.newsletterSignupList)
 
 //default response = 404 not found
 //      responses with 2 parameters! 
