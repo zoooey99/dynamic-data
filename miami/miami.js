@@ -50,6 +50,8 @@ app.get('/basic', (req,res) =>{
 app.get('/newsletter-signup', handler.newsletterSignup)
 app.post('/newsletter-signup/process', handler.newsletterSignupProcess)
 app.get('/newsletter/list', handler.newsletterSignupList)
+app.get('/newsletter/detail/:email', handler.newsletterUser)
+app.get('/newsletter/delete/:email', handler.newsletterUserDelete)
 
 //default response = 404 not found
 //      responses with 2 parameters! 

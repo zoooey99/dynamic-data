@@ -1,1 +1,22 @@
-{"users":[{"firstname":"hi","lastname":"there","address":"zoey","city":"city","state":"state","zip":"123","email":"hi@miami.edu"}]}
+{
+  "users": [
+    {
+      "firstname": "Hi ",
+      "lastname": "There",
+      "address": "this",
+      "city": "is",
+      "state": "state",
+      "zip": "35758",
+      "email": "zjoey@gmail.com"
+    },
+    {
+      "firstname": "My",
+      "lastname": "Name",
+      "address": "Is",
+      "city": "Zoey",
+      "state": "Lee",
+      "zip": "12345",
+      "email": "12345@miami.edu"
+    }
+  ]
+}
