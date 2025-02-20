@@ -62,6 +62,9 @@ exports.newsletterUserDelete = (req, res) => {
 
     let json = JSON.stringify(newList);
     fs.writeFileSync('./data/emails.json', json, 'utf-8', ()=>{});
+    
+    delete require.cache[require.resolve("../data/emails.json")]; //clearing cache for module
+    
     res.redirect('/newsletter/list');
 
 }

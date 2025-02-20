@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const port = process.env.port || 3000;
 
 let navigation = require("./data/navigation.json");
+let slideshow = require("./data/slideshow.json");
 
 //set up the template engine
 const handlebars = require('express-handlebars');
@@ -17,8 +18,16 @@ app.set('view engine', 'handlebars');
 
 //create some routes
 app.get('/', (request, response) => {
+    let slides = slideshow.slides.filter((slide)=>{
+        return slide.home == true;
+    })
+
     response.type('text/html');
-    response.render("home", {title:"Miami Travel Site", nav: navigation}); //implement the template by referencing the template
+    response.render("page", {title:"Miami Travel Site", nav: navigation, slides: slides}); //implement the template by referencing the template
+})
+
+app.get('/page/:page', (req,res) => {
+ 
 })
 
 app.get('/beaches', (request, response) => {
