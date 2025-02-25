@@ -9,11 +9,13 @@ const port = process.env.port || 3000;
 
 let navigation = require("./data/navigation.json");
 let slideshow = require("./data/slideshow.json");
+let gallery = require('./data/gallery.json');
 
 //set up the template engine
 const handlebars = require('express-handlebars');
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
+app.use(express.static('./public'));
 
 
 //create some routes
@@ -23,7 +25,7 @@ app.get('/', (request, response) => {
     })
 
     response.type('text/html');
-    response.render("page", {title:"Miami Travel Site", nav: navigation, slides: slides}); //implement the template by referencing the template
+    response.render("page", {title:"Miami Travel Site", nav: navigation, slides: slides, images: gallery.images}); //implement the template by referencing the template
 })
 
 app.get('/page/:page', (req,res) => {
