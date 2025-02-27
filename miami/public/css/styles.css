@@ -3,3 +3,7 @@
     height:13rem;
     object-fit: cover;
 }
+.gallery img{
+    margin-bottom: 1rem;
+    aspect-ratio: 4/4;
+}

@@ -1,0 +1,14 @@
+{
+    "pages":[
+        {
+            "page":"nightlife",
+            "title":"Miami at Night",
+            "description":"A night in the 305 ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim sed risus non fermentum. Donec eget lacus et nunc aliquam venenatis quis rutrum est. Vivamus sollicitudin diam massa, sit amet euismod ex laoreet sed. Etiam et luctus turpis, quis efficitur ligula. Mauris sodales dolor ut molestie elementum. Pellentesque scelerisque, nulla vel consequat cursus, mauris odio elementum quam, bibendum convallis tortor odio non tortor. Curabitur erat velit, rhoncus vitae elementum et, molestie et orci. In vel mi elementum, imperdiet nulla interdum, facilisis felis. Cras id hendrerit sem. Suspendisse lobortis sodales mi ac dapibus. Proin ultrices ante nec arcu posuere, quis commodo dolor mattis. Pellentesque congue lacus porta erat consequat interdum."
+        },
+        {
+            "page":"beaches",
+            "title":"Miami Beaches",
+            "description":"Sunny days ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim sed risus non fermentum. Donec eget lacus et nunc aliquam venenatis quis rutrum est. Vivamus sollicitudin diam massa, sit amet euismod ex laoreet sed. Etiam et luctus turpis, quis efficitur ligula. Mauris sodales dolor ut molestie elementum. Pellentesque scelerisque, nulla vel consequat cursus, mauris odio elementum quam, bibendum convallis tortor odio non tortor. Curabitur erat velit, rhoncus vitae elementum et, molestie et orci. In vel mi elementum, imperdiet nulla interdum, facilisis felis. Cras id hendrerit sem. Suspendisse lobortis sodales mi ac dapibus. Proin ultrices ante nec arcu posuere, quis commodo dolor mattis. Pellentesque congue lacus porta erat consequat interdum."
+        }
+    ]
+}

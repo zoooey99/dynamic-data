@@ -2,5 +2,10 @@
 
 {{#if title}}
 <h1>{{title}}</h1>
-<p>Welcome to the <strong>{{title}}</strong> page!</p>
 {{/if}}
+
+{{#if description}}
+<p>{{description}}</p>
+{{/if}}
+
+{{>destinations}}

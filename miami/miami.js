@@ -10,6 +10,8 @@ const port = process.env.port || 3000;
 let navigation = require("./data/navigation.json");
 let slideshow = require("./data/slideshow.json");
 let gallery = require('./data/gallery.json');
+let content = require('./data/pages.json');
+let destinations = require('./data/destinations.json');
 
 //set up the template engine
 const handlebars = require('express-handlebars');
@@ -18,7 +20,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('./public'));
 
 
-//create some routes
+//home page
 app.get('/', (request, response) => {
     let slides = slideshow.slides.filter((slide)=>{
         return slide.home == true;
@@ -28,8 +30,29 @@ app.get('/', (request, response) => {
     response.render("page", {title:"Miami Travel Site", nav: navigation, slides: slides, images: gallery.images}); //implement the template by referencing the template
 })
 
+//dynamic route
 app.get('/page/:page', (req,res) => {
- 
+    //filter pages object to get page form :page req.params.page
+    let page = content.pages.filter((item)=>{
+        return item.page == req.params.page;
+    })
+    let slides = slideshow.slides.filter((slide) => {
+        return slide.page == req.params.page;
+    })
+    let dest = destinations.locations.filter((loc)=>{
+        return loc.page == req.params.page;
+    })
+
+    res.type('text/html');
+    res.render("page", {
+        title: page[0].title, 
+        description: page[0].description,
+        nav: navigation, 
+        slides: slides, 
+        images: gallery.images,
+        locations: dest
+    }); //implement the template by referencing the template
+
 })
 
 app.get('/beaches', (request, response) => {

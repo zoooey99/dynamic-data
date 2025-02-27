@@ -1,0 +1,47 @@
+{
+    "locations":[
+        {
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        },{
+            "page":"nightlife",
+            "name":"Factory Town",
+            "descrption":"",
+            "img":"/images/destinations/destination.jpg"
+
+        }
+    ]
+}
