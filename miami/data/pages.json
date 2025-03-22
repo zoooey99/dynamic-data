@@ -1,14 +1,24 @@
 {
-    "pages":[
+    "pages": [
         {
-            "page":"nightlife",
-            "title":"Miami at Night",
-            "description":"A night in the 305 ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim sed risus non fermentum. Donec eget lacus et nunc aliquam venenatis quis rutrum est. Vivamus sollicitudin diam massa, sit amet euismod ex laoreet sed. Etiam et luctus turpis, quis efficitur ligula. Mauris sodales dolor ut molestie elementum. Pellentesque scelerisque, nulla vel consequat cursus, mauris odio elementum quam, bibendum convallis tortor odio non tortor. Curabitur erat velit, rhoncus vitae elementum et, molestie et orci. In vel mi elementum, imperdiet nulla interdum, facilisis felis. Cras id hendrerit sem. Suspendisse lobortis sodales mi ac dapibus. Proin ultrices ante nec arcu posuere, quis commodo dolor mattis. Pellentesque congue lacus porta erat consequat interdum."
+            "page": "neighborhoods",
+            "title": "Neighborhoods",
+            "description": "San Francisco's neighborhoods are vibrant and diverse, each with its own unique vibe. From the colorful murals and Latin flavor of the Mission District to the bohemian roots of Haight-Ashbury, there's something for everyone. Explore Chinatown’s rich culture, stroll through the Italian charm of North Beach, or shop at chic boutiques in Hayes Valley."
         },
         {
-            "page":"beaches",
-            "title":"Miami Beaches",
-            "description":"Sunny days ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim sed risus non fermentum. Donec eget lacus et nunc aliquam venenatis quis rutrum est. Vivamus sollicitudin diam massa, sit amet euismod ex laoreet sed. Etiam et luctus turpis, quis efficitur ligula. Mauris sodales dolor ut molestie elementum. Pellentesque scelerisque, nulla vel consequat cursus, mauris odio elementum quam, bibendum convallis tortor odio non tortor. Curabitur erat velit, rhoncus vitae elementum et, molestie et orci. In vel mi elementum, imperdiet nulla interdum, facilisis felis. Cras id hendrerit sem. Suspendisse lobortis sodales mi ac dapibus. Proin ultrices ante nec arcu posuere, quis commodo dolor mattis. Pellentesque congue lacus porta erat consequat interdum."
+            "page": "nature",
+            "title": "Nature",
+            "description": "Despite being a bustling city, San Francisco is surrounded by stunning natural beauty. Take in panoramic views at Twin Peaks, wander through the lush trails of Golden Gate Park, or hike the rugged coastline of Lands End. The city’s outdoor escapes offer a peaceful retreat just minutes from urban life."
+        },
+        {
+            "page": "landmarks",
+            "title": "Landmarks",
+            "description": "San Francisco is home to some of the most iconic landmarks in the world. From the towering Golden Gate Bridge to the historic charm of Alcatraz Island, visitors can step into history, marvel at architecture, and snap unforgettable photos. Explore famous spots like Coit Tower, the Painted Ladies, and ride the city's beloved cable cars through hilly streets."
+        },
+        {
+            "page": "culture",
+            "title": "Culture",
+            "description": "Dive into San Francisco’s rich cultural scene with world-class museums and institutions. Discover innovative exhibits at the Exploratorium, contemporary art at SFMOMA, and natural wonders at the California Academy of Sciences. With diverse offerings across art, history, science, and global cultures, there’s something to inspire every curious traveler."
         }
     ]
 }

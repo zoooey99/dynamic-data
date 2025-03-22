@@ -1,35 +1,28 @@
 
 {
     "brand": {
-        "name": "Miami Travel Site", 
+        "name": "Visit San Francisco", 
         "link": "/",
         "img": "/images/logo.png"
     },
     "links": [
        {
-        "text": "Home",
-        "href": "/"
+        "text": "Neighborhoods",
+        "href": "/page/neighborhoods"
        },
        {
-        "text": "Night Life",
-        "href": "/page/nightlife"
+        "text": "Nature",
+        "href": "/page/nature"
        },
        {
-        "text": "Beaches",
-        "href": "/page/beaches"
+        "text": "Landmarks",
+        "href": "/page/landmarks"
        },
+
        {
-        "text": "About",
-        "href": "/page/about"
-       },
-       {
-        "text":"Newsletter Signup",
-        "href":"/page/newsletter-signup"
-        },
-        {
-        "text": "Newsletter List",
-        "href": "/page/newsletter/list"
-        }
+        "text": "Culture",
+        "href": "/page/culture"
+       }
 
     ]
 }

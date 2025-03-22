@@ -1,47 +1,100 @@
 {
-    "locations":[
+    "locations": [
         {
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
-        },{
-            "page":"nightlife",
-            "name":"Factory Town",
-            "descrption":"",
-            "img":"/images/destinations/destination.jpg"
-
+            "page": "neighborhoods",
+            "name": "Chinatown",
+            "description": "The oldest Chinatown in North America, known for its bustling markets, authentic eateries, and vibrant culture.",
+            "img": "/images/destinations/chinatown.jpeg"
+        },
+        {
+            "page": "neighborhoods",
+            "name": "Haight-Ashbury",
+            "description": "The heart of the 1960s counterculture movement, filled with vintage shops, murals, and historic vibes.",
+            "img": "/images/destinations/haight.jpeg"
+        },
+        {
+            "page": "neighborhoods",
+            "name": "Mission District",
+            "description": "A lively neighborhood famous for its Latin roots, colorful murals, and delicious Mexican food.",
+            "img": "/images/destinations/mission.jpeg"
+        },
+        {
+            "page": "neighborhoods",
+            "name": "North Beach",
+            "description": "San Francisco’s Little Italy, known for its cafes, jazz clubs, and views from Coit Tower.",
+            "img": "/images/destinations/northbeach.jpeg"
+        },
+        {
+            "page": "culture",
+            "name": "San Francisco Museum of Modern Art (SFMOMA)",
+            "description": "A leading contemporary art museum featuring works by renowned artists in a sleek modern space.",
+            "img": "/images/destinations/sfmoma.jpeg"
+        },
+        {
+            "page": "culture",
+            "name": "Asian Art Museum",
+            "description": "Home to one of the most comprehensive Asian art collections in the world, spanning centuries of culture.",
+            "img": "/images/destinations/asianart.jpeg"
+        },
+        {
+            "page": "culture",
+            "name": "Exploratorium",
+            "description": "A hands-on science museum with interactive exhibits perfect for curious minds of all ages.",
+            "img": "/images/destinations/explore.jpeg"
+        },
+        {
+            "page": "culture",
+            "name": "California Academy of Sciences",
+            "description": "A natural history museum with an aquarium, planetarium, and living rainforest all under one roof.",
+            "img": "/images/destinations/calacademy.jpeg"
+        },
+        {
+            "page": "landmarks",
+            "name": "Golden Gate Bridge",
+            "description": "One of the most recognizable structures in the world, offering breathtaking views and walking paths.",
+            "img": "/images/destinations/bridge.jpeg"
+        },
+        {
+            "page": "landmarks",
+            "name": "Alcatraz Island",
+            "description": "The site of the infamous federal prison, now a popular historic tour destination in the bay.",
+            "img": "/images/destinations/alcatraz.jpeg"
+        },
+        {
+            "page": "landmarks",
+            "name": "Painted Ladies",
+            "description": "A row of colorful Victorian houses with the city skyline as a dramatic backdrop, featured in many films.",
+            "img": "/images/destinations/paintedladies.jpeg"
+        },
+        {
+            "page": "landmarks",
+            "name": "Coit Tower",
+            "description": "An art deco tower atop Telegraph Hill, offering panoramic views and murals from the 1930s.",
+            "img": "/images/destinations/coit.jpeg"
+        },
+        {
+            "page": "nature",
+            "name": "Golden Gate Park",
+            "description": "A massive urban park with gardens, trails, lakes, and cultural institutions like the de Young Museum.",
+            "img": "/images/destinations/goldenpark.jpeg"
+        },
+        {
+            "page": "nature",
+            "name": "Twin Peaks",
+            "description": "A popular lookout point with sweeping views of the entire city and the bay area.",
+            "img": "/images/destinations/twinpeaks.jpeg"
+        },
+        {
+            "page": "nature",
+            "name": "Lands End",
+            "description": "A coastal trail with scenic views, cliffs, and the ruins of the historic Sutro Baths.",
+            "img": "/images/destinations/landsend.jpeg"
+        },
+        {
+            "page": "nature",
+            "name": "Baker Beach",
+            "description": "A sandy stretch with incredible views of the Golden Gate Bridge and Pacific Ocean sunsets.",
+            "img": "/images/destinations/baker.jpeg"
         }
     ]
 }

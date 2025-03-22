@@ -1,34 +1,83 @@
 {
     "slides": [
         {
-            "url": "/images/slides/slide1.jpg",
-            "home": true,
-            "page": "nightlife"
-        },
-        {
-            "url": "/images/slides/slide2.jpg",
+            "url": "/images/slides/culture1.jpeg",
             "home": false,
-            "page": "nightlife"
+            "page": "culture"
         },
         {
-            "url": "/images/slides/slide3.jpg",
-            "home": true,
-            "page": "nightlife"
-        },
-        {
-            "url": "/images/slides/slide4.jpg",
+            "url": "/images/slides/culture2.jpeg",
             "home": false,
-            "page": "nightlife"
+            "page": "culture"
         },
         {
-            "url": "/images/slides/slide5.jpg",
-            "home": true,
-            "page": "nightlife"
-        },
-        {
-            "url": "/images/slides/slide6.jpg",
+            "url": "/images/slides/culture3.jpeg",
             "home": false,
-            "page": "nightlife"
+            "page": "culture"
+        },
+        {
+            "url": "/images/slides/culture4.jpeg",
+            "home": false,
+            "page": "culture"
+        },
+        {
+            "url": "/images/slides/landmark1.jpeg",
+            "home": false,
+            "page": "landmarks"
+        },
+        {
+            "url": "/images/slides/landmark2.jpeg",
+            "home": true,
+            "page": "landmarks"
+        },
+        {
+            "url": "/images/slides/landmark3.jpeg",
+            "home": true,
+            "page": "landmarks"
+        },{
+            "url": "/images/slides/landmark4.jpeg",
+            "home": false,
+            "page": "landmarks"
+        },
+        {
+            "url": "/images/slides/nature1.jpeg",
+            "home": true,
+            "page": "nature"
+        },
+        {
+            "url": "/images/slides/nature2.jpeg",
+            "home": false,
+            "page": "nature"
+        },
+        {
+            "url": "/images/slides/nature3.jpeg",
+            "home": true,
+            "page": "nature"
+        },
+        {
+            "url": "/images/slides/nature4.jpeg",
+            "home": false,
+            "page": "nature"
+        },
+        {
+            "url": "/images/slides/neighborhoods1.jpeg",
+            "home": true,
+            "page": "neighborhoods"
+        },
+        {
+            "url": "/images/slides/neighborhoods2.jpeg",
+            "home": false,
+            "page": "neighborhoods"
+        },
+        {
+            "url": "/images/slides/neighborhoods3.jpeg",
+            "home": true,
+            "page": "neighborhoods"
+        },
+        {
+            "url": "/images/slides/neighborhoods4.jpeg",
+            "home": false,
+            "page": "neighborhoods"
         }
     ]
 }

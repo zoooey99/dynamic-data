@@ -27,7 +27,7 @@ app.get('/', (request, response) => {
     })
 
     response.type('text/html');
-    response.render("page", {title:"Miami Travel Site", nav: navigation, slides: slides, images: gallery.images}); //implement the template by referencing the template
+    response.render("page", {title:"Visit San Francisco", nav: navigation, slides: slides, images: gallery.images}); //implement the template by referencing the template
 })
 
 //dynamic route
