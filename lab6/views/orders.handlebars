@@ -1,0 +1,16 @@
+<h2>Customer List</h2>
+
+{{#if customers}}
+    {{#each customers}}
+        <div class="customer">
+            <p>Name: {{firstName}} {{lastName}}</p>
+            <p>Email: {{email}}</p>
+            <p>Address: {{address}}</p>
+            <p>City: {{city}}, {{state}} {{zip}}</p>
+            <p>Phone: {{phone}}</p>
+            <hr>
+        </div>
+    {{/each}}
+{{else}}
+    <p>No customers found in the database.</p>
+{{/if}}

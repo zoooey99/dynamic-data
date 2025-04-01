@@ -17,7 +17,7 @@ const sequelize = new Sequelize({
   storage: 'database.sqlite'
 })
 
-//create model
+//create models
 const Customer = sequelize.define('Customers', {
     firstName: {
         type: DataTypes.STRING,
@@ -65,13 +65,68 @@ const Customer = sequelize.define('Customers', {
     }
 })
 const Order = sequelize.define('Orders', {
-    
+    size: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+        isIn: ['S', 'M', 'L', 'XL']
+        }
+    },
+    toppings: {
+        type: DataTypes.STRING,
+    },
+    Notes: {
+        type: DataTypes.STRING
+    },
+    Status: {
+        type: DataTypes.STRING,
+        validate: {
+            isIn: ['New', 'Processing', 'Completed']
+        }
+    }
 })
+//middleware
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
     res.type('text/html')
     res.render('home')
 });
 
+app.post('/submit-customer', async (req,res)=>{
+    try{
+        const newUser = await Customer.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
+            phone: req.body.phone
+        });
+        res.redirect('/orders')
+    }catch (error){
+        res.status(400).json({ error: error.message });
+    }
+});
 
-app.listen(3000);
+app.get('/orders', async (req, res) => {
+    try{
+        const customers = await Customer.findAll();
+        res.render('orders', {customers});
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
+// Sync database
+sequelize.sync()
+  .then(() => {
+    console.log('Database synced successfully');
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.error('Error syncing database:', err);
+  });
