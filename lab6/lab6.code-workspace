@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../miami"
+		},
+		{
+			"path": "../file-uploads"
+		}
+	],
+	"settings": {}
+}
