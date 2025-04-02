@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit-customer', handler.submitCustomer)
 app.get('/customers', handler.customers)
-app.get('/customers/detail/:email', handler.viewCustomer)
+app.get('/customers/detail/:id', handler.viewCustomer)
 app.get('/customers/delete/:id', handler.deleteCustomer)
 
 // Sync database

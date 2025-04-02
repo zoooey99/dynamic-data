@@ -41,8 +41,12 @@ exports.customers = async (req, res) => {
     }
 };
 
-exports.viewCustomer = async (req, res) => {
-
+exports.viewCustomer = async (req, res) => { // route '/customers/detail/:id'
+    const selected = await Customer.findByPk(req.params.id, {
+        raw: true  // Convert Sequelize model to plain object
+    })
+    console.log(`Showing User: ${selected.id}, ${selected.firstName} ${selected.lastName}`)
+    res.render('customerDetails', {selected})
 }
 
 exports.deleteCustomer = async (req, res) => {
