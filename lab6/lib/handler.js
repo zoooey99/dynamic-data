@@ -1,7 +1,21 @@
 const { Customer, Order, sequelize } = require('./models');
 
+//app.get('customers/create', handler.customersCreate)
+exports.customersCreate = async (req, res) => {
+    res.type('text/html')
+    res.render('home')
+}
 
-exports.submitCustomer = async (req,res)=>{
+//app.get('/customers/edit/:id', handler.customerEdit)
+exports.customerEdit = async (req, res) => {
+    res.type('text/html')
+    const customer = await Customer.findByPk(req.params.id, {
+        raw: true
+    });
+    res.render('home', {customer})
+}
+
+exports.customerCreateSubmit = async (req,res)=>{
     try{
         console.log('Received form data:', req.body);
         const newUser = await Customer.create({
@@ -26,6 +40,33 @@ exports.submitCustomer = async (req,res)=>{
     }
 };
 
+exports.customerEditSubmit = async (req,res) => {
+    try{
+        console.log('Received form data:', req.body);
+        const customerId = req.params.id;
+        await Customer.update({
+            id: req.body.ID,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
+            phone: req.body.phone
+        }, {where: { id: customerId}});
+
+        console.log('User Edited:', newUser.id);
+        res.redirect('/customers');
+    }catch (error){
+        console.error('Error details:', error);
+        res.status(400).json({ 
+            error: error.message,
+            details: error.errors
+        });
+    }
+}
+
 exports.customers = async (req, res) => {
     try {
         const customers = await Customer.findAll({
@@ -34,8 +75,9 @@ exports.customers = async (req, res) => {
         res.render('customers', { customers });
     } catch (error) {
         console.error('Error fetching customers:', error);
+        // Don't try to use the customers variable here since it won't exist if there's an error
         res.render('customers', { 
-            customers: [],
+            customers: [], // Just pass an empty array
             error: 'Unable to fetch customers'
         });
     }

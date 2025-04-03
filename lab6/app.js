@@ -22,18 +22,20 @@ const sequelize = new Sequelize({
 
 
 //middleware
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.type('text/html')
-    res.render('home')
+    res.redirect('customers/create')
 });
 
-app.post('/submit-customer', handler.submitCustomer)
+app.get('/customers/create', handler.customersCreate)
 app.get('/customers', handler.customers)
 app.get('/customers/detail/:id', handler.viewCustomer)
 app.get('/customers/delete/:id', handler.deleteCustomer)
+app.get('/customers/edit/:id', handler.customerEdit)
+app.post('/customers/submitCreate', handler.customerCreateSubmit)
+app.post('/customers/submitEdit/:id', handler.customerEditSubmit)
 
 // Sync database
 sequelize.sync()

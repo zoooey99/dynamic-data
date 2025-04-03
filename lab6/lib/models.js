@@ -81,6 +81,10 @@ const Order = sequelize.define('Orders', {
         }
     }
 });
+//Make the relationship to Customer
+Order.belongsTo(Customer)
+Customer.hasMany(Order)
+
 
 // Export everything needed
 module.exports = {
