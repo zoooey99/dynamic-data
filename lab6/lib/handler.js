@@ -9,9 +9,7 @@ exports.customersCreate = async (req, res) => {
 //app.get('/customers/edit/:id', handler.customerEdit)
 exports.customerEdit = async (req, res) => {
     res.type('text/html')
-    const customer = await Customer.findByPk(req.params.id, {
-        raw: true
-    });
+    const customer = await Customer.findByPk(req.params.id);
     res.render('home', {customer})
 }
 
@@ -56,7 +54,7 @@ exports.customerEditSubmit = async (req,res) => {
             phone: req.body.phone
         }, {where: { id: customerId}});
 
-        console.log('User Edited:', newUser.id);
+        console.log('User Edited:', req.params.id);
         res.redirect('/customers');
     }catch (error){
         console.error('Error details:', error);
@@ -69,9 +67,7 @@ exports.customerEditSubmit = async (req,res) => {
 
 exports.customers = async (req, res) => {
     try {
-        const customers = await Customer.findAll({
-            raw: true  // This converts Sequelize models to plain objects
-        });
+        const customers = await Customer.findAll();
         res.render('customers', { customers });
     } catch (error) {
         console.error('Error fetching customers:', error);
@@ -84,11 +80,9 @@ exports.customers = async (req, res) => {
 };
 
 exports.viewCustomer = async (req, res) => { // route '/customers/detail/:id'
-    const selected = await Customer.findByPk(req.params.id, {
-        raw: true  // Convert Sequelize model to plain object
-    })
-    console.log(`Showing User: ${selected.id}, ${selected.firstName} ${selected.lastName}`)
-    res.render('customerDetails', {selected})
+    const selected = await Customer.findByPk(req.params.id)
+    console.log(`Showing User: ${selected.dataValues.id}, ${selected.dataValues.firstName} ${selected.dataValues.lastName}`)
+    res.render('customerDetails', {"selected":selected})
 }
 
 exports.deleteCustomer = async (req, res) => {
@@ -96,4 +90,23 @@ exports.deleteCustomer = async (req, res) => {
     console.log(`Deleting User: ${deleted.id}, ${deleted.firstName} ${deleted.lastName}`)
     deleted.destroy()
     res.redirect('/customers')
+}
+
+exports.orders = async (req, res) => {
+    try {
+        const orders = await Order.findAll();
+        res.render('orders', { "orders" : orders });
+    } catch (error) {
+        console.error('Error fetching customers:', error);
+        // Don't try to use the customers variable here since it won't exist if there's an error
+        res.render('orders', { 
+            customers: [], // Just pass an empty array
+            error: 'Unable to fetch customers'
+        });
+    }
+}
+
+exports.createOrder = async (req,res) => {
+    res.type('text/html')
+    res.render('createOrder')
 }

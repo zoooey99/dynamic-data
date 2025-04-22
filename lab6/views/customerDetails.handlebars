@@ -1,21 +1,24 @@
+<header class="bg-dark text-white text-center py-4 mb-4">
+    {{>navigation}}
+  </header>
 <div class="container mt-5">
   <h2 class="mb-4">Customer Details</h2>
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{selected.firstName}} {{selected.lastName}}</h5>
-      <h6 class="card-subtitle mb-3 text-muted">{{selected.email}}</h6>
+      <h5 class="card-title">{{selected.dataValues.firstName}} {{selected.dataValues.lastName}}</h5>
+      <h6 class="card-subtitle mb-3 text-muted">{{selected.dataValues.email}}</h6>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Phone:</strong> {{selected.phone}}</li>
-        <li class="list-group-item"><strong>Address:</strong> {{selected.address}}, {{selected.city}}, {{selected.state}} {{selected.zip}}</li>
+        <li class="list-group-item"><strong>Phone:</strong> {{selected.dataValues.phone}}</li>
+        <li class="list-group-item"><strong>Address:</strong> {{selected.dataValues.address}}, {{selected.dataValues.city}}, {{selected.dataValues.state}} {{selected.dataValues.zip}}</li>
       </ul>
     </div>
   </div>
 
   <div class="mt-4">
-    <a href="/customers/edit/{{selected.id}}" class="btn btn-secondary">Edit</a>
-    <a href="/customers/delete/{{selected.id}}" class="btn btn-danger">Delete</a>
+    <a href="/customers/edit/{{selected.dataValues.id}}" class="btn btn-secondary">Edit</a>
+    <a href="/customers/delete/{{selected.dataValues.id}}" class="btn btn-danger">Delete</a>
     <a href="/customers" class="btn btn-outline-primary">Back to Customers</a>
   </div>
 </div>

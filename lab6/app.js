@@ -37,6 +37,9 @@ app.get('/customers/edit/:id', handler.customerEdit)
 app.post('/customers/submitCreate', handler.customerCreateSubmit)
 app.post('/customers/submitEdit/:id', handler.customerEditSubmit)
 
+app.get('/orders', handler.orders)
+app.get('/orders/create', handler.createOrder)
+
 // Sync database
 sequelize.sync()
   .then(() => {

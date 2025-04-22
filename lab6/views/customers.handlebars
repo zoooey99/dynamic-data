@@ -1,3 +1,6 @@
+<header class="bg-dark text-white text-center py-4 mb-4">
+    {{>navigation}}
+  </header>
 <div class="container mt-5">
   <h2 class="mb-4">Customer List</h2>
 
@@ -20,19 +23,19 @@
         <tbody>
           {{#each customers}}
             <tr>
-              <td>{{id}}</td>
-              <td>{{firstName}} {{lastName}}</td>
-              <td>{{email}}</td>
-              <td>{{address}}</td>
-              <td>{{city}}</td>
-              <td>{{state}}</td>
-              <td>{{zip}}</td>
-              <td>{{phone}}</td>
+              <td>{{this.dataValues.id}}</td>
+              <td>{{this.dataValues.firstName}} {{this.dataValues.lastName}}</td>
+              <td>{{this.dataValues.email}}</td>
+              <td>{{this.dataValues.address}}</td>
+              <td>{{this.dataValues.city}}</td>
+              <td>{{this.dataValues.state}}</td>
+              <td>{{this.dataValues.zip}}</td>
+              <td>{{this.dataValues.phone}}</td>
               <td>
                 <div class="btn-group btn-group-sm" role="group">
-                  <a href="/customers/detail/{{this.id}}" class="btn btn-outline-primary">View</a>
-                  <a href="/customers/edit/{{this.id}}" class="btn btn-outline-secondary">Edit</a>
-                  <a href="/customers/delete/{{this.id}}" class="btn btn-outline-danger">Delete</a>
+                  <a href="/customers/detail/{{this.dataValues.id}}" class="btn btn-outline-primary">View</a>
+                  <a href="/customers/edit/{{this.dataValues.id}}" class="btn btn-outline-secondary">Edit</a>
+                  <a href="/customers/delete/{{this.dataValues.id}}" class="btn btn-outline-danger">Delete</a>
                 </div>
               </td>
             </tr>

@@ -1,0 +1,55 @@
+<header class="bg-dark text-white text-center py-4 mb-4">
+    {{>navigation}}
+  </header>
+<div class="container mt-5">
+  <h2 class="mb-4">Order List</h2>
+
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  {{#if orders}}
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Size</th>
+            <th>Toppings</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+            <tr>
+              <td>{{this.dataValues.id}}</td>
+              <td>{{this.dataValues.CustomerId}}</td>
+              <td>{{this.dataValues.size}}</td>
+              <td>{{this.dataValues.toppings}}</td>
+              <td>{{this.dataValues.Notes}}</td>
+              <td>{{this.dataValues.Status}}</td>
+              <td>
+                <div class="btn-group btn-group-sm" role="group">
+                  <a href="/orders/detail/{{this.dataValues.id}}" class="btn btn-outline-primary">View</a>
+                  <a href="/orders/edit/{{this.dataValues.id}}" class="btn btn-outline-secondary">Edit</a>
+                  <a href="/orders/delete/{{this.dataValues.id}}" class="btn btn-outline-danger">Delete</a>
+                </div>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{else}}
+    {{#unless error}}
+      <div class="alert alert-info">No orders found in the database.</div>
+    {{/unless}}
+  {{/if}}
+
+  <div class="text-center mt-4">
+    <a href="/orders/create" class="btn btn-primary">Add New Order</a>
+  </div>
+</div>
