@@ -12,13 +12,9 @@ const handler = require('./lib/handler')
 //Setup bodyParser
 const bodyParser = require('body-parser')
 
-//Define our models and init database
-const {Sequelize, Model, DataTypes } = require('sequelize')
-//create sequelize instance
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'database.sqlite'
-})
+// --- Import models HERE ---
+// This line ensures Sequelize knows about your models *before* sync
+const { sequelize, Customer, Order } = require('./lib/models');
 
 
 //middleware
@@ -38,13 +34,18 @@ app.post('/customers/submitCreate', handler.customerCreateSubmit)
 app.post('/customers/submitEdit/:id', handler.customerEditSubmit)
 
 app.get('/orders', handler.orders)
-app.get('/orders/create', handler.createOrder)
+app.get('/orders/create/:id', handler.createOrder)
+app.post('/orders/create', handler.orderCreateSubmit)
 
 // Sync database
 sequelize.sync()
   .then(() => {
     console.log('Database synced successfully');
-    app.listen(3000);
+    // Start the server only after syncing
+    const PORT = process.env.PORT || 3000; 
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
   })
   .catch(err => {
     console.error('Error syncing database:', err);

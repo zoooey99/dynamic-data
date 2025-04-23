@@ -17,7 +17,7 @@ exports.customerCreateSubmit = async (req,res)=>{
     try{
         console.log('Received form data:', req.body);
         const newUser = await Customer.create({
-            id: req.body.ID,
+            id: req.body.id,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -107,6 +107,57 @@ exports.orders = async (req, res) => {
 }
 
 exports.createOrder = async (req,res) => {
+    const customer = await Customer.findByPk(req.params.id)
     res.type('text/html')
-    res.render('createOrder')
+    res.render('createOrder', {"customer": customer})
+}
+
+exports.orderCreateSubmit = async (req, res) => {
+    console.log("CREATING NEW ORDER --------------------------------------")
+    console.log("Request body:", req.body);
+    console.log("Customer ID:", req.body.id);
+    const customer = await Customer.findByPk(req.body.id);
+    console.log("Customer found:", customer ? true : false);
+
+    // If customer is null, this will cause an error
+    if (!customer) {
+        console.error("Customer not found with ID:", req.body.id);
+        // Handle this error (maybe redirect to an error page)
+        return res.redirect('/error');
+    }
+
+    let total = 0.0
+    let size = req.body.size 
+    let toppings = req.body.toppings
+    if(size == 'S' ) {
+        total += 10.00
+    } else if(size == 'M' ) {
+        total += 15.00
+    } else if(size == 'L' ) {
+        total += 18.00
+    } else if(size == 'XL' ) {
+        total += 22.00
+    }
+    toppings.forEach( (value) =>{ 
+        if(value == 'ham') {
+        total += 3.50
+        }  
+        if(value == 'pepperoni') {
+        total += 3.00
+        }  
+        if(value == 'mushrooms') {
+        total += 2.00
+        } 
+    })
+    const toppingsStr = toppings.join(', ');
+  // add the order to the customer object
+  const newOrder = await customer.createOrder({
+    size: size,
+    toppings: toppingsStr,
+    notes: req.body.notes,
+    total: total,
+    status: req.body.status
+  })
+  res.type('text/html')
+  res.redirect('/orders')
 }
