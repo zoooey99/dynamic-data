@@ -1,7 +1,74 @@
+{{#if order}}
+<form method="post" action="/orders/edit/{{order.dataValues.id}}" enctype="application/x-www-form-urlencoded" class="container mt-5">
+  <h2 class="mb-4">Order Information</h2>
+  <div class="row g-3">
+      <input type="hidden" value="{{customer.dataValues.id}}" name="id">
+
+    <div class="col-12">
+      <label for="size" class="form-label">Size</label>
+      <select class="form-select" aria-label="select size" name="size">
+        <option selected value="{{order.dataValues.size}}">{{order.dataValues.size}}</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">X-Large</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Toppings</label>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="ham" id="toppings_ham" name="toppings[]">
+        <label class="form-check-label" for="toppings">
+          Ham $3.50
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="pepperoni" id="toppings_p" name="toppings[]">
+        <label class="form-check-label" for="toppings">
+          Pepperoni $3.00
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="mushrooms" id="toppings_m" name="toppings[]">
+        <label class="form-check-label" for="toppings">
+          Mushrooms $2.00
+        </label>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="notes" class="form-label">Notes</label>
+      <textarea class="form-control" id="notes" name="notes" rows="3">{{order.dataValues.notes}}</textarea>
+    </div>
+
+    <div class="col-12">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" aria-label="select status" name="status">
+        <option selected value="{{order.dataValues.status}}"> {{order.dataValues.status}} </option>
+        <option value="New">New</option>
+        <option value="Processing">Processing</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+
+    <div class="col-12 text-end mt-3">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+{{else}}
+
 <form method="post" action="/orders/create" enctype="application/x-www-form-urlencoded" class="container mt-5">
   <h2 class="mb-4">Order Information</h2>
   <div class="row g-3">
-    <input type="hidden" value="{{customer.dataValues.id}}" name="id">
+    {{#if id}}
+        <input type="hidden" value="{{customer.dataValues.id}}" name="id">
+    {{else}}
+       <label for="id" class="form-label">CustomerId</label>
+        <input name="id" type="number" class="form-control" id="id" required>
+    {{/if}}
     
     <div class="col-12">
       <label for="size" class="form-label">Size</label>
@@ -16,14 +83,7 @@
 
     <div class="col-12">
       <label class="form-label">Toppings</label>
-      {{#each order.toppings}}
-      <div class="form-check">
-        <input checked class="form-check-input" type="checkbox" value="{{this}}" id="toppings_{{this}}" name="toppings[]">
-        <label class="form-check-label" for="toppings">
-         {{this}}
-        </label>
-      </div>
-      {{/each}}
+      
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="ham" id="toppings_ham" name="toppings[]">
         <label class="form-check-label" for="toppings">
@@ -63,3 +123,4 @@
     </div>
   </div>
 </form>
+{{/if}}

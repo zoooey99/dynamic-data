@@ -1,0 +1,33 @@
+<header class="bg-dark text-white text-center py-4 mb-4">
+    {{>navigation}}
+</header>
+<div class="container mt-5">
+    <h2 class="mb-4">Order Details</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Order #{{order.dataValues.id}}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Size:</strong> {{order.dataValues.size}}</li>
+                <li class="list-group-item"><strong>Toppings:</strong> {{order.dataValues.toppings}}</li>
+                <li class="list-group-item"><strong>Total:</strong> ${{order.dataValues.total}}</li>
+            </ul>
+
+            <div class="mt-4">
+                <h6 class="card-subtitle mb-3">Customer Information</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Name:</strong> {{order.dataValues.Customer.dataValues.firstName}} {{order.dataValues.Customer.dataValues.lastName}}</li>
+                    <li class="list-group-item"><strong>Address:</strong> {{order.dataValues.Customer.dataValues.address}}, {{order.dataValues.Customer.dataValues.city}}, {{order.dataValues.Customer.dataValues.state}} {{order.dataValues.Customer.dataValues.zip}}</li>
+                    <li class="list-group-item"><strong>Phone:</strong> {{order.dataValues.Customer.dataValues.phone}}</li>
+                    <li class="list-group-item"><strong>Email:</strong> <a href="mailto:{{order.dataValues.Customer.dataValues.email}}">{{order.dataValues.Customer.dataValues.email}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="/order/edit/{{order.dataValues.id}}" class="btn btn-secondary">Edit</a>
+        <a href="/order/delete/{{order.dataValues.id}}" class="btn btn-danger">Delete</a>
+        <a href="/orders" class="btn btn-outline-primary">Back to Orders</a>
+    </div>
+</div>

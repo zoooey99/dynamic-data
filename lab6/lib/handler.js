@@ -94,14 +94,18 @@ exports.deleteCustomer = async (req, res) => {
 
 exports.orders = async (req, res) => {
     try {
-        const orders = await Order.findAll();
+        const orders = await Order.findAll({
+            include: [{
+                model: Customer,
+                attributes: ['firstName', 'lastName']
+            }]
+        });
         res.render('orders', { "orders" : orders });
     } catch (error) {
-        console.error('Error fetching customers:', error);
-        // Don't try to use the customers variable here since it won't exist if there's an error
+        console.error('Error fetching orders:', error);
         res.render('orders', { 
-            customers: [], // Just pass an empty array
-            error: 'Unable to fetch customers'
+            orders: [],
+            error: 'Unable to fetch orders'
         });
     }
 }
@@ -160,4 +164,83 @@ exports.orderCreateSubmit = async (req, res) => {
   })
   res.type('text/html')
   res.redirect('/orders')
+}
+
+exports.viewOrder = async (req,res) => {
+    const selected = await Order.findByPk(req.params.id, {
+        include: [{
+            model: Customer
+        }]
+    })
+    res.render('orderDetails', {"order":selected})
+}
+
+exports.deleteOrder = async (req, res) => {
+    const deleted = await Order.findByPk(req.params.id)
+    console.log(`Deleting Order: ${deleted.id}`)
+    deleted.destroy()
+    res.redirect('/orders')
+}
+
+exports.orderEdit = async (req,res)=>{
+    res.type('text/html')
+    const order = await Order.findByPk(req.params.id);
+    res.render('createOrder', {"order":order})
+}
+exports.orderEditSubmit = async (req,res) => {
+    try {
+        console.log('Received form data:', req.body);
+        const orderId = req.params.id;
+        
+        // Calculate total price
+        let total = 0.0;
+        let size = req.body.size;
+        let toppings = req.body.toppings || [];
+        
+        // Calculate size price
+        if(size == 'S') {
+            total += 10.00;
+        } else if(size == 'M') {
+            total += 15.00;
+        } else if(size == 'L') {
+            total += 18.00;
+        } else if(size == 'XL') {
+            total += 22.00;
+        }
+        
+        // Calculate toppings price
+        toppings.forEach((value) => {
+            if(value == 'ham') {
+                total += 3.50;
+            }
+            if(value == 'pepperoni') {
+                total += 3.00;
+            }
+            if(value == 'mushrooms') {
+                total += 2.00;
+            }
+        });
+
+        const toppingsStr = Array.isArray(toppings) ? toppings.join(', ') : '';
+
+        // Update the order
+        await Order.update({
+            size: size,
+            toppings: toppingsStr,
+            notes: req.body.notes,
+            total: total,
+            status: req.body.status
+        }, {
+            where: { id: orderId }
+        });
+
+        console.log('Order Updated:', orderId);
+        res.redirect('/orders');
+    } catch (error) {
+        console.error('Error details:', error);
+        res.status(400).json({ 
+            error: error.message,
+            details: error.errors
+        });
+    }
 }
